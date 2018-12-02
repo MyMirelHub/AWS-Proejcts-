@@ -1,2 +1,2 @@
-# AWS-Project
- - A list of projects I am working on within the AWS enviroments 
+# AWS-Projects 
+- Short text tutorials on various AWS tools
