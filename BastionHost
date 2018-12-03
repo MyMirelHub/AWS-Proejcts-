@@ -27,11 +27,11 @@ Route Tables
 
 Security Groups 
 	- NAT SG
-		-	Inbound: All Traffic from Private Subnet(10.10.1.0/24)
+		- Inbound: All Traffic from Private Subnet(10.10.1.0/24)
 		- Outbound: All Traffic(0.0.0.0/0) 
 	- Bastion SG
 		- Inbound: SSH from my IP
-		-	Outbout: All Traffic 
+		- Outbout: All Traffic 
 	- Internal SG (Private) 
 		- Inbound: SSH from Bastion SG
 		- Outbond: All Traffic  
@@ -39,9 +39,9 @@ Security Groups
 
 Instances
 	(1) NAT Server  
-		-	Subnet:Public
-		-	IP:Auto (Default) 
-		- Advanced Details(Input User Script). Configures NAT by enabling port forwarding and IPV4 masquerading to make external requeststs 			when the service is launched.
+			- Subnet:Public
+			- IP:Auto (Default) 
+		- Advanced Details(Input User Script). Configures NAT by enabling port forwarding and IPV4 masquerading to make external requeststs when the service is launched.
 							#!/bin/sh
 							echo 1 > /proc/sys/net/ipv4/ip_forward  #Enable IPV4 port forwarding                             
 							echo 0 > /proc/sys/net/ipv4/conf/eth0/send_redirects 	#Security precaution to stop optimal path route cache entry
@@ -55,7 +55,7 @@ Instances
 			- Disable Change Source/Dest -  prevent AWS from rejecting IP packets that are not directly addressed to the NAT server instance’s 				 IP address
 		(2) Bastion Host
 			- IP: Auto 
-			-	Advanced Details(Input Script) - Ensures server has latest security 0atches 
+			- Advanced Details(Input Script) - Ensures server has latest security 0atches 
 							#!/bin/sh
 							yum update -y
 		(3) Internal Instance 
