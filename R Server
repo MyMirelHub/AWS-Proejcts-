@@ -8,6 +8,8 @@ Settings
 -------------------------------------------
 VPC with a public subnet
 
+RouteTable 
+
 Security group
   - Inbound: SSH 22, TCP 8787 (R-Studio port), TCP 3838(R-Shiny); Source All 
   - Outbout: All 
