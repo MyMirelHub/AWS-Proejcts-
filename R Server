@@ -3,6 +3,8 @@ https://aws.amazon.com/blogs/big-data/running-r-on-aws/
 https://www.rstudio.com/products/rstudio/download-server/
 https://stackoverflow.com/questions/49559633/set-password-for-rstudio-server-with-aws-ec2-instance
 https://www.rstudio.com/products/shiny/download-server/
+https://docs.aws.amazon.com/cli/latest/reference/s3api/put-object-acl.html
+https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
 -------------------------------------------
 Settings
 -------------------------------------------
@@ -48,12 +50,26 @@ $ useradd username
 $ sudo passwd username 
 #prompted to enter new password
 
-
-(4) To log in:  in your browser enter public_IP:8787 and enter security credentials 
-
+(4) #create S3 bucket and upload data
+#needs location constraint to work
 aws s3api create-bucket --bucket my-mirelnicebuket --region eu-west-1 --create-bucket-configuration LocationConstraint=eu-west-1
+#get download data from web, important - Important set object acl to public read to make life easy 
+curl "https://vincentarelbundock.github.io/Rdatasets/csv/carData/Vocab.csv" | aws s3 cp - s3://my-mirelnicebuket/Rdata.csv --acl public-read 
 
-curl "https://vincentarelbundock.github.io/Rdatasets/csv/carData/Vocab.csv" | aws s3 cp - s3://my-mirelnicebuket/Rdata.csv
+(5) R configuration
+#Enter R terminal
+ $R
+  > install.packages("RCurl")
+  > library("RCurl") 
+  > data <- read.table(textConnection(getURL(
+                                               "https://s3-eu-west-1.amazonaws.com/my-mirelnicebuket/Rdata.csv"
+                         )), sep=",", header=FALSE)
+  > head(data)
+  
+To log in:  in your browser enter public_IP:8787 and enter security credentials 
 
-aws s3api put-bucket-acl --bucket my-mirelnicebuket --grant-full-control uri=http://acs.amazonaws.com/groups/global/AllUsers
 
+
+Tutorial finished.     
+    
+  
