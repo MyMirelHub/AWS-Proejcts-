@@ -50,3 +50,10 @@ $ sudo passwd username
 
 
 (4) To log in:  in your browser enter public_IP:8787 and enter security credentials 
+
+aws s3api create-bucket --bucket my-mirelnicebuket --region eu-west-1 --create-bucket-configuration LocationConstraint=eu-west-1
+
+curl "https://vincentarelbundock.github.io/Rdatasets/csv/carData/Vocab.csv" | aws s3 cp - s3://my-mirelnicebuket/Rdata.csv
+
+aws s3api put-bucket-acl --bucket my-mirelnicebuket --grant-full-control uri=http://acs.amazonaws.com/groups/global/AllUsers
+
