@@ -8,8 +8,8 @@ import boto3
 # Do not hard code credentials
 # A low-level client representing Amazon Elastic Compute Cloud (EC2):
 # Hard coded strings as credentials, not recommended.
-client = boto3.client('ec2', aws_access_key_id='AKIAYHFIMOVUQG2KBU6K',
-    aws_secret_access_key='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')
+client = boto3.client('ec2', aws_access_key_id='#########',
+    aws_secret_access_key='##########')
 
 # Enter AWS Credentials
 # use both client and resource
