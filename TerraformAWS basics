@@ -9,8 +9,6 @@ Configuration
 
 Open with VS code 
  provider "aws" {
-  access_key = "AKIAIRKGN33E77KSZTYA"
-  secret_key = "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"
   region     = "eu-west-1"
 }
 
