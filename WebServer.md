@@ -1,14 +1,16 @@
-Create an AWS web server 
+## Create an AWS web server 
 -------------------------------------------
 Configuration
 ----------------------------------------
- VPC
-Security Group
-  HTTP (80) Anywhere 
-	SSH (22) Anywhere
- Public Subnet
+VPC
+- Security Group
+  - HTTP (80) Anywhere 
+  - SSH (22) Anywhere
+- Public Subnet
   
 EC2 Bash Commands
+
+```
 $sudo yum update -y
 $sudo yum install -y httpd php
 $sudo service httpd start
@@ -21,6 +23,8 @@ $sudo chmod 2775 /var/www
 #Change the directory permissions
 $find /var/www -type d -exec sudo chmod 2775 {} +	
 find /var/www -type f -exec sudo chmod 0664 {} +       /
+```
+
 
 Connec Apache web server 
 
