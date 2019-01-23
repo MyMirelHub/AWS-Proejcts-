@@ -25,9 +25,9 @@ Instructions
   - I highly recommend AGAINST this as there is no feedbak if it goes wrong 
 
   - Install R-Server in the EC2 console: -- Check latest versions in R webpage - CentOS
-
-### install R
 ```
+#install R
+
 $ sudo yum install -y R
 
 #install RStudio-Server 
@@ -36,9 +36,9 @@ $ sudo yum install rstudio-server-rhel-1.1.463-x86_64.rpm
 $ rm rstudio-server-rhel-1.1.463-x86_64.rpm
 $ sudo rstudio-server verify-installation
 ```
-
-### OPTIONAL - install shiny and shiny-server
 ```
+#OPTIONAL - install shiny and shiny-server
+
 $ sudo su - \-c "R -e \"install.packages('shiny', repos='https://cran.rstudio.com/')\""
 $ wget https://download3.rstudio.org/centos6.3/x86_64/shiny-server-1.5.9.923-x86_64.rpm
 $ sudo yum install --nogpgcheck shiny-server-1.5.9.923-x86_64.rpm
