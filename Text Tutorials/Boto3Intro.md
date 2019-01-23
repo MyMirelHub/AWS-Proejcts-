@@ -1,4 +1,5 @@
-# https://boto3.amazonaws.com/v1/documentation/api/latest/index.html
+*Creating a simple VPC with a subnet using boto3*
+
 ```python
 import boto3
 # https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
@@ -7,9 +8,7 @@ import boto3
 # Hard coded strings as credentials, not recommended.
 client = boto3.client('ec2', aws_access_key_id='#########',
     aws_secret_access_key='###########')
-```
-
-
+    
 # Enter AWS Credentials
 # use both client and resource
 ec2 = boto3.resource('ec2')
