@@ -5,8 +5,9 @@
 http://justsomestuff.co.uk/theblog/2017/01/15/using-a-bastion-host-to-access-your-aws-ec2-instances/
 https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-running-in-a-private-amazon-vpc/
 
-Summary of Settings 
+##### Summary of Settings 
 ----------------------------------------------------------
+
 VPC IP (10.10.0.0/16) 		      
 
 Subnets 
@@ -43,6 +44,12 @@ Instances
 			- Subnet:Public
 			- IP:Auto (Default) 
 		- Advanced Details(Input User Script). Configures NAT by enabling port forwarding and IPV4 masquerading to make external requeststs when the service is launched.
+```console
+#!/bin/sh
+$echo 1 > /proc/sys/net/ipv4/ip_forward  #Enable IPV4 port forwarding                             
+$echo 0 > /proc/sys/net/ipv4/conf/eth0/send_redirects 	#Security precaution to stop optimal path route cache
+ ```
+ 
 			#!/bin/sh
 			$echo 1 > /proc/sys/net/ipv4/ip_forward  #Enable IPV4 port forwarding                             
 			$echo 0 > /proc/sys/net/ipv4/conf/eth0/send_redirects 	#Security precaution to stop optimal path route cache entry
