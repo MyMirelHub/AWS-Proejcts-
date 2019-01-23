@@ -15,10 +15,10 @@ https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-runnin
   - Auto Assign IP 
 - Private Subnet:(10.10.1.0/24)
   
-Internet Gateway - Attached to VPC
+*Internet Gateway* - Attached to VPC
 
 Route Tables
-  - Public 
+- Public 
     - Destination 
       - 0.0.0.0/0
           - Target: Internet Gateway
