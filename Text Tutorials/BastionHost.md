@@ -19,13 +19,13 @@ https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-runnin
 
 Route Tables
 - Public 
-    - Destination 
-      - 0.0.0.0/0
-          - Target: Internet Gateway
-  - Private 
-     -Destination 
-      - 0.0.0.0/0
-          - Target: Nat Server Instance
+  - Destination 
+    - 0.0.0.0/0
+      - Target: Internet Gateway
+- Private 
+  - Destination 
+    - 0.0.0.0/0
+      - Target: Nat Server Instance
 
 Security Groups 
 	- NAT SG
