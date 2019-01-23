@@ -1,4 +1,4 @@
--Getting Started with terraform and AWS
+# Getting Started with terraform and AWS
 
 Creating a VPC with public, private subnets, route tables and internet getaway
 -------------------------------------------
