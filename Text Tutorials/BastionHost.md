@@ -28,22 +28,22 @@ Route Tables
       - Target: Nat Server Instance
 
 Security Groups 
-	- NAT SG
-		- Inbound: All Traffic from Private Subnet(10.10.1.0/24)
-		- Outbound: All Traffic(0.0.0.0/0) 
-	- Bastion SG
-		- Inbound: SSH from my IP
-		- Outbout: All Traffic 
-	- Internal SG (Private) 
-		- Inbound: SSH from Bastion SG
-		- Outbond: All Traffic  
-		
-
+- NAT SG
+  - Inbound: All Traffic from Private Subnet(10.10.1.0/24)
+  - Outbound: All Traffic(0.0.0.0/0) 
+- Bastion SG
+  - Inbound: SSH from my IP
+  - Outbout: All Traffic 
+- Internal SG (Private) 
+  - Inbound: SSH from Bastion SG
+  - Outbond: All Traffic  	
+  
 Instances
-	(1) NAT Server  
-			- Subnet:Public
-			- IP:Auto (Default) 
-		- Advanced Details(Input User Script). Configures NAT by enabling port forwarding and IPV4 masquerading to make external requeststs when the service is launched.
+- NAT Server  
+  - Subnet:Public
+  - IP:Auto (Default) 
+  - Advanced Details(Input User Script). Configures NAT by enabling port forwarding and IPV4 masquerading to make external requeststs when the service is launched.
+  
 ```console
 #!/bin/sh
 $echo 1 > /proc/sys/net/ipv4/ip_forward  #Enable IPV4 port forwarding                             
@@ -61,11 +61,10 @@ $net.ipv4.ip_forward = 1
 $net.ipv4.conf.eth0.send_redirects = 0
 $EOF 
 ```
-
-- Disable Change Source/Dest -  prevent AWS from rejecting IP packets that are not directly addressed to the NAT server instance’s 				 IP address
-		(2) Bastion Host
-			- IP: Auto 
-			- Advanced Details(Input Script) - Ensures server has latest security 0atches 
+- Disable Change Source/Dest -  prevent AWS from rejecting IP packets that are not directly addressed to the NAT server instance’s IP address
+- Bastion Host
+  - IP: Auto 
+  - Advanced Details(Input Script) - Ensures server has latest security patches 
 ```console
 #!/bin/sh
 yum update -y
@@ -74,8 +73,8 @@ yum update -y
 			- IP: Disabled
 			
 Key Pairs
--(1)NAT & Basiton Key pairs
--(2)Private Instance Key Pair 
+- (1)NAT & Basiton Key pairs
+- (2)Private Instance Key Pair 
 
 Connection Guide
 ----------------------------------------------------------			
@@ -88,6 +87,8 @@ Connection Guide
 
 Results
 ------------------------------------------------------------
+```
+
 login as: ec2-user
 Authenticating with public key "imported-openssh-key" from agent
 Last login: Sat Dec  1 20:30:52 2018 from 37.173.73.5
@@ -115,3 +116,4 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 64 bytes from 8.8.8.8: icmp_seq=2 ttl=108 time=11.4 ms
 64 bytes from 8.8.8.8: icmp_seq=3 ttl=108 time=11.4 ms
 64 bytes from 8.8.8.8: icmp_seq=4 ttl=108 time=11.5 ms
+```
