@@ -24,18 +24,18 @@ $sudo chmod 2775 /var/www
 $find /var/www -type d -exec sudo chmod 2775 {} +	
 find /var/www -type f -exec sudo chmod 0664 {} +       /
 ```
-
-
-Connec Apache web server 
+Connect Apache web server 
+```
 
 $cd /var/www
 $mkdir inc
 $cd inc        // change the directory and create a new subdirectory
 $>dbinfo.inc
 $nano dbinfo.inc   // Create a new file in the inc directory named dbinfo.inc
+```
 
 in nano
- 
+```
 	<html>
 		<title>
 			"Hello"
@@ -44,7 +44,7 @@ in nano
 		Hello
 		</body>
 	</html>
-
+```
 Save File
 
 The web page return hello 
