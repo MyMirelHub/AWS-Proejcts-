@@ -1,4 +1,4 @@
-*Creating a simple VPC with a subnet using boto3*
+*Creating a simple VPC with a subnet using boto3(AWS Python SDK*
 
 ```python
 import boto3
