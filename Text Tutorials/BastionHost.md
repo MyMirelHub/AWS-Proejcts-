@@ -66,8 +66,10 @@ $EOF
 		(2) Bastion Host
 			- IP: Auto 
 			- Advanced Details(Input Script) - Ensures server has latest security 0atches 
-							#!/bin/sh
-							yum update -y
+```console
+#!/bin/sh
+yum update -y
+```
 		(3) Internal Instance 
 			- IP: Disabled
 			
