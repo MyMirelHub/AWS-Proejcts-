@@ -11,9 +11,9 @@ https://aws.amazon.com/blogs/security/securely-connect-to-linux-instances-runnin
 *VPC IP* - (10.10.0.0/16) 		      
 
 *Subnets* 
-*Public Subnet (10.10.0/24)
-	*Auto Assign IP 
-*Private Subnet:(10.10.1.0/24)
+-Public Subnet (10.10.0/24)
+	-Auto Assign IP 
+-Private Subnet:(10.10.1.0/24)
   
 Internet Gateway - Attached to VPC
 
