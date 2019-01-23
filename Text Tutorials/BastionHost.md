@@ -48,19 +48,21 @@ Instances
 #!/bin/sh
 $echo 1 > /proc/sys/net/ipv4/ip_forward  #Enable IPV4 port forwarding                             
 $echo 0 > /proc/sys/net/ipv4/conf/eth0/send_redirects 	#Security precaution to stop optimal path route cache
- ```
  
-			#!/bin/sh
-			$echo 1 > /proc/sys/net/ipv4/ip_forward  #Enable IPV4 port forwarding                             
-			$echo 0 > /proc/sys/net/ipv4/conf/eth0/send_redirects 	#Security precaution to stop optimal path route cache entry
-			$/sbin/iptables -t nat -A POSTROUTING -o eth0 -s 0.0.0.0/0 -j MASQUERADE #Masks the private IP
-			$/sbin/iptables-save > /etc/sysconfig/iptables # saves the settings 
-			$mkdir -p /etc/sysctl.d/ 
-			$cat <<EOF > /etc/sysctl.d/nat.conf #File to save nat config whenever instance is rebooted
-			$net.ipv4.ip_forward = 1 
-			$net.ipv4.conf.eth0.send_redirects = 0
-			$EOF 
-			- Disable Change Source/Dest -  prevent AWS from rejecting IP packets that are not directly addressed to the NAT server instance’s 				 IP address
+ 
+#!/bin/sh
+$echo 1 > /proc/sys/net/ipv4/ip_forward  #Enable IPV4 port forwarding                             
+$echo 0 > /proc/sys/net/ipv4/conf/eth0/send_redirects 	#Security precaution to stop optimal path route cache entry
+$/sbin/iptables -t nat -A POSTROUTING -o eth0 -s 0.0.0.0/0 -j MASQUERADE #Masks the private IP
+$/sbin/iptables-save > /etc/sysconfig/iptables # saves the settings 
+$mkdir -p /etc/sysctl.d/ 
+$cat <<EOF > /etc/sysctl.d/nat.conf #File to save nat config whenever instance is rebooted
+$net.ipv4.ip_forward = 1 
+$net.ipv4.conf.eth0.send_redirects = 0
+$EOF 
+```
+
+- Disable Change Source/Dest -  prevent AWS from rejecting IP packets that are not directly addressed to the NAT server instance’s 				 IP address
 		(2) Bastion Host
 			- IP: Auto 
 			- Advanced Details(Input Script) - Ensures server has latest security 0atches 
