@@ -85,13 +85,15 @@ ______________________________________________________________
 Save the file, 
 
 To run on command promt for the first time
-
+```
 Terraform init 
 Terraform plan 
 Terraform apply 
+```
 ________________________________________________________________
 Results 
 _____________________
+```
 An execution plan has been generated and is shown below.
 Resource actions are indicated with the following symbols:
   + create
@@ -193,3 +195,4 @@ Terraform will perform the following actions:
       owner_id:                                    <computed>
       tags.%:                                      "1"
       tags.Name:                                   "Terra1VPC"
+```
