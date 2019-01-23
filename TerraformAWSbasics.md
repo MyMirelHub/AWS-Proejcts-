@@ -1,13 +1,14 @@
 # Getting Started with terraform and AWS
 
-Creating a VPC with public, private subnets, route tables and internet getaway
+#### Creating a VPC with public, private subnets, route tables and internet getaway
 -------------------------------------------
 Using Windows and VS code with official terraform extension as editor
 ________________________________________
 Configuration 
 - Create a terraform directorty and a new file with extension .tf 
 
-Open with VS code 
+```python
+
  provider "aws" {
   region     = "eu-west-1"
   secret key 
@@ -78,6 +79,8 @@ resource "aws_route_table_association" "Public" {
   subnet_id      = "${aws_subnet.main2.id}"
   route_table_id = "${aws_route_table.public.id}"
 }
+
+```
 ______________________________________________________________
 Save the file, 
 
